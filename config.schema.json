@@ -13,11 +13,23 @@
         "default": "Dummy Garage",
         "description": "Name of Garage to appear in Home app"
       },
-      "autoCloseDelay": {
-        "title": "Auto Close Delay",
+      "openingStateDuration": {
+        "title": "\"Opening\" State Duration",
         "type": "integer",
-        "default": 0,
-        "description": "Number of seconds after opening door will automatically close. 0 to disable."
+        "default": 5,
+        "description": "Number of seconds the door should spend \"opening\"."
+      },
+      "openStateDuration": {
+        "title": "\"Open\" State Duration",
+        "type": "integer",
+        "default": 10,
+        "description": "Number of seconds the door should stay open."
+      },
+      "closingStateDuration": {
+        "title": "\"Closing\" State Duration",
+        "type": "integer",
+        "default": 5,
+        "description": "Number of seconds the door should spend \"closing\"."
       }
     }
   }
