@@ -1,14 +1,14 @@
 {
   "name": "homebridge-dummy-garage",
-  "version": "1.2.3",
-  "description": "Dummy Garage Opener for Homebridge",
+  "version": "2.0.0",
+  "description": "Dummy Garage Opener for Homebridge (Taylor's Version)",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/rasod/homebridge-dummy-garage.git"
+    "url": "git://github.com/laurasandoval/homebridge-dummy-garage.git"
   },
   "bugs": {
-    "url": "https://github.com/rasod/homebridge-dummy-garage/issues"
+    "url": "https://github.com/laurasandoval/homebridge-dummy-garage/issues"
   },
   "keywords": [
     "homebridge-plugin",
