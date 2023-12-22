@@ -1,5 +1,8 @@
 {
-  "name": "homebridge-dummy-garage",
+  "private": true,
+  "displayName": "Homebridge Dummy Garage (Taylor's Version)",
+  "author": "Laura Sandoval (https://github.com/laurasandoval)",
+  "name": "homebridge-dummy-garage-taylors-version",
   "version": "2.0.0",
   "description": "Dummy Garage Opener for Homebridge (Taylor's Version)",
   "license": "MIT",
@@ -23,6 +26,9 @@
     "homebridge": ">=0.3.0"
   },
   "dependencies": {
+    "node-persist": "^2.1.0"
+  },
+  "devDependencies": {
     "node-persist": "^2.1.0"
   },
   "scripts": {},

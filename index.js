@@ -60,12 +60,14 @@ class DummyGarage {
 			})
 			.on('set', (value, callback) => {
 				if (value === Characteristic.TargetDoorState.OPEN) {
-					// Setting door state to OPEN
+					callback();
+
+					// Setting door state to OPEN…
 					this.lastOpened = new Date();
 
-					this.log(`Opening ${this.name}. Will stay "opening" for ${this.openStateDuration} seconds.`)
-					this.service.setCharacteristic(Characteristic.CurrentDoorState, Characteristic.CurrentDoorState.CLOSED);
-					this.service.setCharacteristic(Characteristic.TargetDoorState, Characteristic.TargetDoorState.OPEN);
+					this.log(`Opening ${this.name}. Will stay "opening" for ${this.openingStateDuration} seconds.`)
+					this.service.setCharacteristic(Characteristic.CurrentDoorState, Characteristic.CurrentDoorState.OPENING);
+					this.storage.setItem(this.name, false);
 
 					setTimeout(() => {
 						this.log(`${this.name} set to OPEN. Will stay open for ${this.openStateDuration} seconds.`)
@@ -76,19 +78,18 @@ class DummyGarage {
 							this.service.setCharacteristic(Characteristic.TargetDoorState, Characteristic.TargetDoorState.CLOSED);
 						}, this.openStateDuration * 1000);
 					}, this.openingStateDuration * 1000);
-
+				} else if (value === Characteristic.TargetDoorState.CLOSED) {
 					callback();
 
-				} else if (value === Characteristic.TargetDoorState.CLOSED) {
+					// Setting door state to CLOSED…
 					this.log(`Closing ${this.name}. Will stay "closing" for ${this.closingStateDuration} seconds.`)
-					this.service.setCharacteristic(Characteristic.CurrentDoorState, Characteristic.CurrentDoorState.OPEN);
-					this.service.setCharacteristic(Characteristic.TargetDoorState, Characteristic.TargetDoorState.CLOSED);
+					this.service.setCharacteristic(Characteristic.CurrentDoorState, Characteristic.CurrentDoorState.CLOSING);
+					this.storage.setItem(this.name, false);
 
 					setTimeout(() => {
-						this.log(`${this.name} set to CLOSED..`)
+						this.log(`${this.name} set to CLOSED.`)
 						this.service.setCharacteristic(Characteristic.CurrentDoorState, Characteristic.CurrentDoorState.CLOSED);
 						this.storage.setItem(this.name, false);
-						callback();
 					}, this.closingStateDuration * 1000);
 				} else {
 					callback();
