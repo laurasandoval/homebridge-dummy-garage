@@ -30,9 +30,9 @@ class DummyGarage {
 
 		this.informationService = new Service.AccessoryInformation();
 		this.informationService
-			.setCharacteristic(Characteristic.Manufacturer, 'github/rasod')
+			.setCharacteristic(Characteristic.Manufacturer, 'github/laurasandoval')
 			.setCharacteristic(Characteristic.Model, 'Dummy Garage')
-			.setCharacteristic(Characteristic.FirmwareRevision, '1.2.2')
+			.setCharacteristic(Characteristic.FirmwareRevision, '2.0.0')
 			.setCharacteristic(Characteristic.SerialNumber, this.name.replace(/\s/g, '').toUpperCase());
 	}
 
